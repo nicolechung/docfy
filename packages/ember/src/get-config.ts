@@ -5,6 +5,7 @@ import replaceInternalLinksWithDocfyLink from './plugins/replace-internal-links-
 import extractDemosToComponents from './plugins/extract-demos-to-components';
 import previewTemplate from './plugins/preview-template';
 import type { RemarkHbsOptions } from 'remark-hbs';
+import remarkGjs from './remark-gjs';
 
 const DEFAULT_CONFIG: DocfyConfig = {
   sources: [
@@ -13,6 +14,15 @@ const DEFAULT_CONFIG: DocfyConfig = {
       urlPrefix: 'docs'
     }
   ]
+};
+
+const liveCodeConfig = {
+  snippets: {
+    classList: ['glimdown-snippet', 'relative']
+  },
+  demo: {
+    classList: ['glimdown-render']
+  }
 };
 
 interface EmberDocfyConfig extends DocfyConfig {
@@ -75,10 +85,12 @@ export default function getDocfyConfig(root: string): EmberDocfyConfig {
     docfyConfig.remarkPlugins = [];
   }
 
+  docfyConfig.remarkPlugins.push([remarkGjs, liveCodeConfig]);
   docfyConfig.remarkPlugins.push([
     remarkHbs,
     docfyConfig.remarkHbsOptions || {}
   ]);
+
 
   docfyConfig.sources.forEach((source) => {
     if (typeof source.root === 'undefined') {

@@ -44,11 +44,14 @@
     "ember-cli-htmlbars": "^6.0.1",
     "ember-cli-typescript": "^4.2.1",
     "ember-get-config": "^1.0.2",
+    "inflection": "^2.0.1",
     "mdast-util-to-string": "^2.0.0",
     "remark-hbs": "^0.4.1",
     "unist-builder": "^2.0.3",
     "unist-util-find": "^1.0.2",
-    "unist-util-visit": "^2.0.2"
+    "unist-util-flatmap": "^1.0.0",
+    "unist-util-visit": "^2.0.2",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/helper-define-map": "^7.16.7",

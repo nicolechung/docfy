@@ -1,5 +1,10 @@
 # Welcome to Docfy
 
+```gjs live
+<template>
+  <p>Hello world</p>
+</template>
+```
 This project is on GitHub.
 
 ![GitHub](./github-icon.png)
